@@ -12,22 +12,26 @@
 </p>
 <table class="table">
     <tr>
-        <th>Имя</th>
-        <th>Возраст</th>
+        <th>[FirstName]</th>
+        <th>[LastName]</th>
+        <th>[Title]</th>
+        <th>[BirthDate]</th>
+        <th>[City]</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.FirstName</td>
-            <td>
-                @item.LastName
-            </td>
-            <td>
-                <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
-                <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
+<tr>
+    <td>@item.FirstName</td>
+    <td>@item.LastName</td>
+    <td>@item.Title</td>
+    <td>@item.BirthDate</td>
+    <td>@item.City</td>
+    <td>
+        <a asp-controller="EmplDapper" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+        <a asp-controller="EmplDapper" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+    </td>
+</tr>
     }
 </table>
