@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CoreEmplDapper.Models.Empl>
+
+@{
+    ViewData["Title"] = "Список пользователей";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-controller="EmplDapper" asp-action="Create">Добавить</a>
+</p>
+<table class="table">
+    <tr>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>
+                @item.LastName
+            </td>
+            <td>
+                <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-controller="Home" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
